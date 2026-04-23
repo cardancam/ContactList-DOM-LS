@@ -1,0 +1,27 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Lista de Contactos</title>
+</head>
+<body>
+    <div id="spinner" class="spinner hidden"></div>
+    
+    <img src="https://th.bing.com/th/id/OIP.hzeZBtXjQ4NiQqP98gZtyAHaHa?w=209&h=209&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" width="100" height="100" alt="Imagen Contactos">
+    <h1>Lista de Contactos</h1>
+    
+    <div class="form-container">
+        <input type="text" id="addContactName" placeholder="Nombre del contacto">
+        <input type="text" id="addContactLastName" placeholder="Apellido del contacto">
+        <input type="number" id="addContactPhone" placeholder="Número de teléfono">
+        <input type="text" id="addContactCity" placeholder="Ciudad">
+        <input type="text" id="addContactAddress" placeholder="Dirección">
+        <button onclick="addContact()" id="addContactButton">Agregar Contacto</button>
+    </div>
+    
+    <div id="contactList" class="contact-list"></div>
+</body>
+</html>

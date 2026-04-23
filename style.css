@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    padding: 20px;
+}
+
+img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+input:focus {
+    outline: 1px solid #333;
+}
+
+#addContactButton {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#addContactButton:hover {
+    background: #555;
+}
+
+.contact-list {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item {
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.contact-info p {
+    color: #666;
+    margin: 3px 0;
+    font-size: 0.9em;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    background: #f0f0f0;
+}
+
+/* Spinner de carga */
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid #ccc;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 9999;
+}
+
+.spinner.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-item {
+        flex-direction: column;
+    }
+
+    .contact-actions {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

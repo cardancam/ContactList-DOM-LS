@@ -1,5 +1,27 @@
 let contacts = [];
 let editingIndex = -1;
+let selectedGender = "";
+
+// Manejar cambio de sexo (checkboxes mutuamente excluyentes)
+function handleGenderChange(gender) {
+    if (gender === "masculino") {
+        document.getElementById("genderMale").checked = !document.getElementById("genderMale").checked;
+        if (document.getElementById("genderMale").checked) {
+            document.getElementById("genderFemale").checked = false;
+            selectedGender = "masculino";
+        } else {
+            selectedGender = "";
+        }
+    } else if (gender === "femenino") {
+        document.getElementById("genderFemale").checked = !document.getElementById("genderFemale").checked;
+        if (document.getElementById("genderFemale").checked) {
+            document.getElementById("genderMale").checked = false;
+            selectedGender = "femenino";
+        } else {
+            selectedGender = "";
+        }
+    }
+}
 
 // Mostrar/Ocultar spinner
 function showSpinner() {
@@ -38,12 +60,12 @@ function addContact() {
     const city = document.getElementById("addContactCity").value.trim();
     const address = document.getElementById("addContactAddress").value.trim();
 
-    if (!name || !lastName || !phone || !city || !address) {
+    if (!name || !lastName || !phone || !city || !address || !selectedGender) {
         alert("Por favor, complete todos los campos.");
         return;
     }
 
-    const contact = { name, lastName, phone, city, address };
+    const contact = { name, lastName, phone, city, address, gender: selectedGender };
 
     if (editingIndex === -1) {
         // Agregar nuevo contacto
@@ -70,9 +92,10 @@ function renderContacts() {
         contacts.forEach((contact, index) => {
         const contactItem = document.createElement("div");
         contactItem.className = "contact-item";
+        const genderEmoji = contact.gender === "masculino" ? "👨" : "👩";
         contactItem.innerHTML = `
             <div class="contact-info">
-                <h3>${contact.name} ${contact.lastName}</h3>
+                <h3>${genderEmoji} ${contact.name} ${contact.lastName}</h3>
                 <p><strong>Ciudad:</strong> ${contact.city}</p>
             </div>
             <div class="contact-actions">
@@ -95,6 +118,10 @@ function editContact(index) {
     document.getElementById("addContactCity").value = contact.city;
     document.getElementById("addContactAddress").value = contact.address;
     
+    selectedGender = contact.gender;
+    document.getElementById("genderMale").checked = contact.gender === "masculino";
+    document.getElementById("genderFemale").checked = contact.gender === "femenino";
+    
     editingIndex = index;
     document.getElementById("addContactButton").textContent = "Actualizar Contacto";
 }
@@ -115,6 +142,9 @@ function clearFields() {
     document.getElementById("addContactPhone").value = "";
     document.getElementById("addContactCity").value = "";
     document.getElementById("addContactAddress").value = "";
+    document.getElementById("genderMale").checked = false;
+    document.getElementById("genderFemale").checked = false;
+    selectedGender = "";
     editingIndex = -1;
     document.getElementById("addContactButton").textContent = "Agregar Contacto";
 }

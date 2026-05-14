@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>Lista de Contactos</title>
 </head>
 <body>
@@ -14,18 +13,22 @@
     <h1>Lista de Contactos</h1>
     
     <div class="form-container">
-        <input type="text" id="addContactName" placeholder="Nombre del contacto">
-        <input type="text" id="addContactLastName" placeholder="Apellido del contacto">
-        <input type="number" id="addContactPhone" placeholder="Número de teléfono">
-        <input type="text" id="addContactCity" placeholder="Ciudad">
-        <input type="text" id="addContactAddress" placeholder="Dirección">
-        <div class="gender-container">
-            <label><input type="checkbox" id="genderMale" onchange="handleGenderChange('masculino')"> Masculino</label>
-            <label><input type="checkbox" id="genderFemale" onchange="handleGenderChange('femenino')"> Femenino</label>
-        </div>
-        <button onclick="addContact()" id="addContactButton">Agregar Contacto</button>
+        <form id="formulario">
+            <input type="text" id="contactName" placeholder="Nombre del contacto">
+            <input type="text" id="contactLastName" placeholder="Apellido del contacto">
+            <input type="number" id="contactPhone" placeholder="Número de teléfono">
+            <input type="text" id="contactCity" placeholder="Ciudad">
+            <input type="text" id="contactAddress" placeholder="Dirección">
+            <div class="gender-container">
+                <label><input type="checkbox" id="genderMale" onchange="handleGenderChange('masculino')"> Masculino</label>
+                <label><input type="checkbox" id="genderFemale" onchange="handleGenderChange('femenino')"> Femenino</label>
+            </div>
+            <button type="submit" id="addContactButton">Agregar Contacto</button>
+        </form>
     </div>
     
     <div id="contactList" class="contact-list"></div>
+    
+    <script src="main-api.js"></script>
 </body>
 </html>

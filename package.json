@@ -1,0 +1,25 @@
+{
+  "name": "contactlist-dom-ls",
+  "version": "1.0.0",
+  "description": "Taller hecho con HTML, CSS y JS, con DOM, LocalStorage y Proceso en Github",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardancam/ContactList-DOM-LS.git"
+  },
+  "keywords": [],
+  "author": "cardancam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cardancam/ContactList-DOM-LS/issues"
+  },
+  "homepage": "https://github.com/cardancam/ContactList-DOM-LS#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
